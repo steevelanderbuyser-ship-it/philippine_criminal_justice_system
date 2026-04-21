@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Philippine Criminal Justice System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066cc;
+            --secondary: #003d99;
+            --accent: #ffc107;
+            --light-bg: #f8f9fa;
+            --dark-bg: #1a1a1a;
+            --text-light: #333;
+            --text-dark: #e0e0e0;
+            --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --card-shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-light);
+            background-color: var(--light-bg);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--text-dark);
+        }
+
+        /* ============= Header ============= */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="%230066cc"/><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            animation: slideDown 0.8s ease;
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease;
+        }
+
+        .defense-info {
+            background: rgba(255, 193, 7, 0.2);
+            border: 2px solid var(--accent);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        /* ============= Dark Mode Toggle ============= */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            border: none;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(20deg);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .theme-toggle {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* ============= Navigation ============= */
+        nav {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--card-shadow);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        nav li {
+            flex: 0 1 auto;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 16px 20px;
+            display: block;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            background: rgba(255, 193, 7, 0.1);
+            padding-bottom: 13px;
+        }
+
+        /* ============= Container ============= */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* ============= Sections ============= */
+        section {
+            margin: 60px 0;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        body.dark-mode section {
+            background: #2a2a2a;
+            box-shadow: var(--card-shadow-dark);
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ============= Headings ============= */
+        h2 {
+            color: var(--primary);
+            border-bottom: 4px solid var(--accent);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        body.dark-mode h2 {
+            color: var(--accent);
+        }
+
+        h3 {
+            color: var(--secondary);
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+            border-left: 5px solid var(--accent);
+            padding-left: 20px;
+            animation: slideRight 0.5s ease;
+        }
+
+        h4 {
+            color: var(--primary);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        body.dark-mode h3, body.dark-mode h4 {
+            color: var(--accent);
+        }
+
+        /* ============= Cards ============= */
+        .card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #f0f3f7 100%);
+            border-left: 5px solid var(--secondary);
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .card {
+            background: linear-gradient(135deg, #333 0%, #2a2a2a 100%);
+            border-left-color: var(--accent);
+        }
+
+        .card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        /* ============= Info Boxes ============= */
+        .info-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 2px solid var(--primary);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        body.dark-mode .info-box {
+            background: linear-gradient(135deg, #1a3a52 0%, #0d1f2d 100%);
+            border-color: var(--accent);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe082 100%);
+            border: 2px solid var(--accent);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        body.dark-mode .warning-box {
+            background: linear-gradient(135deg, #664d00 0%, #4d3700 100%);
+            border-color: var(--accent);
+        }
+
+        /* ============= Grid Layout ============= */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .grid-item {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.dark-mode .grid-item {
+            background: #2a2a2a;
+            border-color: var(--accent);
+        }
+
+        .grid-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .grid-item:hover::before {
+            left: 100%;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--secondary);
+        }
+
+        .grid-item h4 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.3em;
+        }
+
+        body.dark-mode .grid-item h4 {
+            color: var(--accent);
+        }
+
+        .grid-item .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        body.dark-mode .grid-item .icon {
+            color: var(--accent);
+        }
+
+        /* ============= Lists ============= */
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            transition: all 0.3s ease;
+            padding-left: 10px;
+        }
+
+        li:hover {
+            padding-left: 20px;
+            color: var(--secondary);
+        }
+
+        body.dark-mode li:hover {
+            color: var(--accent);
+        }
+
+        /* ============= Tables ============= */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        table th {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        table td {
+            padding: 18px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        body.dark-mode table td {
+            border-bottom-color: #444;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+
+        body.dark-mode table tr:nth-child(even) {
+            background-color: #333;
+        }
+
+        table tr:hover {
+            background-color: rgba(255, 193, 7, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* ============= Timeline ============= */
+        .timeline {
+            position: relative;
+            padding: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            padding-left: 80px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--accent);
+        }
+
+        body.dark-mode .timeline-item::before {
+            background: #2a2a2a;
+            border-color: var(--accent);
+        }
+
+        .timeline-item h4 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        /* ============= Badges ============= */
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.85em;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ============= Footer ============= */
+        footer {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        /* ============= Animations ============= */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* ============= Responsive ============= */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav a {
+                text-align: center;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+
+            .timeline-item {
+                padding-left: 60px;
+            }
+
+            .timeline-item::before {
+                width: 30px;
+                height: 30px;
+                left: -5px;
+                top: 10px;
+            }
+        }
+
+        /* ============= Utility Classes ============= */
+        .highlight {
+            background-color: rgba(255, 193, 7, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid var(--accent);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-30 {
+            margin-top: 30px;
+        }
+
+        .mb-30 {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Dark Mode Toggle Button -->
+    <button class="theme-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Header -->
+    <header>
+        <h1><i class="fas fa-scale-balanced"></i> Philippine Criminal Justice System</h1>
+        <p>A Comprehensive Overview of Law Enforcement, Courts, and Justice Administration</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#overview"><i class="fas fa-book"></i> Overview</a></li>
+            <li><a href="#history"><i class="fas fa-history"></i> History</a></li>
+            <li><a href="#constitution"><i class="fas fa-scroll"></i> Constitution</a></li>
+            <li><a href="#structure"><i class="fas fa-cube"></i> Structure</a></li>
+            <li><a href="#laws"><i class="fas fa-gavel"></i> Key Laws</a></li>
+            <li><a href="#law-enforcement"><i class="fas fa-police"></i> Law Enforcement</a></li>
+            <li><a href="#courts"><i class="fas fa-gavel"></i> Courts</a></li>
+            <li><a href="#corrections"><i class="fas fa-building"></i> Corrections</a></li>
+            <li><a href="#challenges"><i class="fas fa-exclamation"></i> Challenges</a></li>
+            <li><a href="#references"><i class="fas fa-book-open"></i> References</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Overview Section -->
+        <section id="overview">
+            <h2><i class="fas fa-compass"></i> Overview</h2>
+            
+            <div class="info-box">
+                <strong>Definition:</strong> The Philippine Criminal Justice System is an integrated set of institutions and procedures established under the 1987 Philippine Constitution and relevant laws to enforce criminal laws, investigate alleged criminal conduct, prosecute offenders, and administer justice.
+            </div>
+
+            <h3>Key Characteristics</h3>
+            <ul>
+                <li><strong>Civil Law System:</strong> Based on written codes and statutes, inherited from Spanish colonial law</li>
+                <li><strong>Democratic Framework:</strong> Established under the 1987 Constitution, Republic Act 6389</li>
+                <li><strong>Mixed Jurisdiction:</strong> Combines elements of civil law and common law traditions</li>
+                <li><strong>Accessible Justice:</strong> Commitment to provide justice to all citizens regardless of economic status</li>
+                <li><strong>Three-Component System:</strong> Law enforcement, judiciary, and corrections work interdependently</li>
+            </ul>
+
+            <h3>Primary Goals</h3>
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Public Safety</h4>
+                    <p>Protect citizens from criminal harm and maintain social order</p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-balance-scale"></i></div>
+                    <h4>Justice</h4>
+                    <p>Ensure fair treatment and accountability for all</p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                    <h4>Community Protection</h4>
+                    <p>Safeguard the general welfare of the Philippine people</p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-heart"></i></div>
+                    <h4>Rehabilitation</h4>
+                    <p>Reform offenders and promote reintegration into society</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section id="history">
+            <h2><i class="fas fa-history"></i> Historical Development</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Pre-Colonial Period (Before 1565)</h4>
+                    <p>Indigenous Filipino societies had their own customary laws and justice systems administered by local leaders (Datus, Barangay leaders).</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Spanish Colonial Period (1565-1898)</h4>
+                    <p>Introduction of Spanish legal codes and Catholic Church influence. Development of colonial administration and Spanish-influenced laws that formed the foundation of modern Philippine law.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>American Colonial Period (1898-1946)</h4>
+                    <p>Introduction of common law elements and democratic institutions. Establishment of modern police force and court system. Philippine Commonwealth period (1935-1946) began transition to independence.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Post-Independence Era (1946-1972)</h4>
+                    <p>Development of independent Philippine judiciary and law enforcement. Expansion of criminal codes and establishment of various law enforcement agencies.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Martial Law Period (1972-1981)</h4>
+                    <p>Implementation of the 1973 Constitution. Enhanced presidential powers but also raised concerns about due process and human rights protections.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Modern Democratic Period (1987-Present)</h4>
+                    <p>Adoption of 1987 Constitution restoring democratic institutions. Renewed emphasis on human rights, due process, and criminal justice reform. Recent modernization efforts and anti-crime initiatives.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Constitution Section -->
+        <section id="constitution">
+            <h2><i class="fas fa-scroll"></i> Constitutional Framework (1987)</h2>
+            
+            <h3>Key Constitutional Provisions</h3>
+
+            <div class="grid">
+                <div class="card">
+                    <h4><i class="fas fa-gavel"></i> Article VIII: The Judiciary</h4>
+                    <p>Establishes the structure and powers of courts. Guarantees judicial independence and creation of lower courts as needed.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-scroll"></i> Bill of Rights (Article III)</h4>
+                    <p>Protects fundamental rights including due process, searches and seizures, self-incrimination, and speedy trial.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-shield-alt"></i> Police Power (Article XII)</h4>
+                    <p>Authorizes state to regulate conduct for public welfare and social justice.</p>
+                </div>
+            </div>
+
+            <h3>Fundamental Rights in Criminal Justice</h3>
+
+            <table>
+                <tr>
+                    <th>Right</th>
+                    <th>Description</th>
+                    <th>Constitutional Basis</th>
+                </tr>
+                <tr>
+                    <td><strong>Due Process</strong></td>
+                    <td>Fair procedures before deprivation of life, liberty, or property</td>
+                    <td>Section 1, Article III</td>
+                </tr>
+                <tr>
+                    <td><strong>Protection Against Unreasonable Searches</strong></td>
+                    <td>Privacy protected from arbitrary government intrusion</td>
+                    <td>Section 2, Article III</td>
+                </tr>
+                <tr>
+                    <td><strong>Right Against Self-Incrimination</strong></td>
+                    <td>No person compelled to testify against themselves</td>
+                    <td>Section 17, Article III</td>
+                </tr>
+                <tr>
+                    <td><strong>Right to Counsel</strong></td>
+                    <td>Access to legal representation at all stages</td>
+                    <td>Section 12, Article III</td>
+                </tr>
+                <tr>
+                    <td><strong>Right to Speedy Trial</strong></td>
+                    <td>Prompt adjudication of criminal cases</td>
+                    <td>Section 16, Article III</td>
+                </tr>
+                <tr>
+                    <td><strong>Presumption of Innocence</strong></td>
+                    <td>Accused presumed innocent until proven guilty</td>
+                    <td>Section 14, Article III</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Structure Section -->
+        <section id="structure">
+            <h2><i class="fas fa-cube"></i> System Structure</h2>
+            
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-police"></i></div>
+                    <h4>Law Enforcement</h4>
+                    <p><strong>Primary Role:</strong> Crime prevention and investigation</p>
+                    <ul>
+                        <li>Philippine National Police (PNP)</li>
+                        <li>Bureau of Fire Protection</li>
+                        <li>Bureau of Corrections</li>
+                        <li>National Bureau of Investigation</li>
+                    </ul>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-gavel"></i></div>
+                    <h4>Judiciary</h4>
+                    <p><strong>Primary Role:</strong> Adjudication and justice administration</p>
+                    <ul>
+                        <li>Supreme Court</li>
+                        <li>Court of Appeals</li>
+                        <li>Regional Trial Courts</li>
+                        <li>Metropolitan Trial Courts</li>
+                    </ul>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-building"></i></div>
+                    <h4>Corrections</h4>
+                    <p><strong>Primary Role:</strong> Custody and rehabilitation</p>
+                    <ul>
+                        <li>Bureau of Corrections</li>
+                        <li>Bureau of Jail Management & Penology</li>
+                        <li>Parole & Probation Office</li>
+                        <li>Community-based programs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>The Philippine Justice Triangle</h3>
+                <p>These three components work together interdependently to maintain the flow of justice from investigation through rehabilitation and reintegration. Coordination and communication are essential for system effectiveness.</p>
+            </div>
+        </section>
+
+        <!-- Key Laws Section -->
+        <section id="laws">
+            <h2><i class="fas fa-gavel"></i> Key Criminal Laws</h2>
+            
+            <h3>Foundational Laws</h3>
+
+            <div class="grid">
+                <div class="card">
+                    <h4><i class="fas fa-book"></i> Revised Penal Code (RPC)</h4>
+                    <p>Primary criminal law enacted in 1930, defining crimes and penalties. Covers felonies, misdemeanors, and crimes against persons, property, and the state.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-scroll"></i> Revised Rules of Court</h4>
+                    <p>Governs procedures in civil and criminal cases. Rule 110-119 contain Criminal Procedure rules.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-gavel"></i> 1987 Constitution</h4>
+                    <p>Establishes due process protections and fundamental rights. Mandates independent judiciary and human rights safeguards.</p>
+                </div>
+            </div>
+
+            <h3>Specialized Criminal Laws</h3>
+
+            <table>
+                <tr>
+                    <th>Law</th>
+                    <th>Number</th>
+                    <th>Focus</th>
+                </tr>
+                <tr>
+                    <td><strong>Anti-Trafficking in Persons Act</strong></td>
+                    <td>RA 9208</td>
+                    <td>Combating human trafficking and sexual exploitation</td>
+                </tr>
+                <tr>
+                    <td><strong>Comprehensive Dangerous Drugs Act</strong></td>
+                    <td>RA 9165</td>
+                    <td>Drug-related offenses and rehabilitation programs</td>
+                </tr>
+                <tr>
+                    <td><strong>Anti-Bullying Act</strong></td>
+                    <td>RA 10627</td>
+                    <td>Prevention and punishment of bullying in schools</td>
+                </tr>
+                <tr>
+                    <td><strong>Cybercrime Prevention Act</strong></td>
+                    <td>RA 10175</td>
+                    <td>Internet-related crimes and cybercrimes</td>
+                </tr>
+                <tr>
+                    <td><strong>Anti-Hazing Law</strong></td>
+                    <td>RA 8049</td>
+                    <td>Prohibition and prosecution of hazing activities</td>
+                </tr>
+                <tr>
+                    <td><strong>Violence Against Women & Children</strong></td>
+                    <td>RA 9262</td>
+                    <td>Protection and prosecution of gender-based violence</td>
+                </tr>
+                <tr>
+                    <td><strong>Anti-Terrorism Act</strong></td>
+                    <td>RA 11479</td>
+                    <td>Prevention and punishment of terrorism</td>
+                </tr>
+                <tr>
+                    <td><strong>Anti-Corruption Laws</strong></td>
+                    <td>RA 3019, RA 6713</td>
+                    <td>Prosecution of official corruption</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Law Enforcement Section -->
+        <section id="law-enforcement">
+            <h2><i class="fas fa-police"></i> Law Enforcement Agencies</h2>
+
+            <h3>Philippine National Police (PNP)</h3>
+
+            <p>The primary law enforcement agency established under Republic Act 6975. Serves as the national police force with jurisdiction over municipal, city, and national crimes.</p>
+
+            <div class="grid">
+                <div class="card">
+                    <h4><i class="fas fa-users"></i> PNP Organization</h4>
+                    <ul>
+                        <li>National Police Commission (NAPOLCOM) - oversight body</li>
+                        <li>Philippine National Police - operating force</li>
+                        <li>Regional and Provincial Police Offices</li>
+                        <li>City/Municipal Police Stations</li>
+                        <li>Barangay Public Safety Offices</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-shield-alt"></i> PNP Units</h4>
+                    <ul>
+                        <li>Criminal Investigation and Detection Group (CIDG)</li>
+                        <li>Directorate for Investigation and Detective Management (DIDM)</li>
+                        <li>Anti-Illegal Drug Group (AIDG)</li>
+                        <li>Highway Patrol Group (HPG)</li>
+                        <li>Traffic Management Group (TMG)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-laptop"></i> Specialized Services</h4>
+                    <ul>
+                        <li>PNP Anti-Cybercrime Group</li>
+                        <li>PNP Women and Children Protection Center</li>
+                        <li>PNP Aviation Group</li>
+                        <li>PNP Logistics and Supply Management Group</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Other Law Enforcement Agencies</h3>
+
+            <div class="grid">
+                <div class="card">
+                    <h4><i class="fas fa-fire"></i> Bureau of Fire Protection (BFP)</h4>
+                    <p>Handles fire prevention, investigation of fire incidents, and rescue operations. Often investigates arson and fire-related crimes.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-search"></i> National Bureau of Investigation (NBI)</h4>
+                    <p>Investigates crimes against national security, intellectual property violations, and complex criminal cases. Special investigative corps for organized crime and white-collar crimes.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-coast-guard"></i> Philippine Coast Guard</h4>
+                    <p>Enforces maritime laws, combats piracy, smuggling, and illegal fishing. Investigates maritime crimes.</p>
+                </div>
+            </div>
+
+            <h3>Functions of Law Enforcement</h3>
+
+            <table>
+                <tr>
+                    <th>Function</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><strong>Crime Prevention</strong></td>
+                    <td>Patrol, community policing, and visible presence to deter criminal activity</td>
+                </tr>
+                <tr>
+                    <td><strong>Investigation</strong></td>
+                    <td>Conduct investigations, gather evidence, and identify suspects</td>
+                </tr>
+                <tr>
+                    <td><strong>Apprehension</strong></td>
+                    <td>Arrest suspects based on probable cause and warrants</td>
+                </tr>
+                <tr>
+                    <td><strong>Evidence Handling</strong></td>
+                    <td>Proper collection, preservation, and chain of custody of evidence</td>
+                </tr>
+                <tr>
+                    <td><strong>Community Relations</strong></td>
+                    <td>Build trust and cooperation with communities for crime prevention</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Courts Section -->
+        <section id="courts">
+            <h2><i class="fas fa-gavel"></i> Judicial System</h2>
+
+            <h3>Structure of Philippine Courts</h3>
+
+            <div class="grid">
+                <div class="card">
+                    <h4><i class="fas fa-crown"></i> Supreme Court</h4>
+                    <p>Highest court of the land. Has appellate jurisdiction and original jurisdiction in cases of public importance. Chief Justice leads 14 Associate Justices.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-building"></i> Court of Appeals</h4>
+                    <p>Reviews decisions of lower courts. 69 Justices organized in various divisions handling criminal, civil, tax, and special cases.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-landmark"></i> Regional Trial Courts (RTCs)</h4>
+                    <p>Exercise original jurisdiction in felony cases and appeals from lower courts. One RTC per province/city.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-gavel"></i> Metropolitan Trial Courts (MTCs)</h4>
+                    <p>Handle misdemeanor cases in Metro Manila area. Have limited territorial and subject matter jurisdiction.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-scales"></i> Municipal Trial Courts (MTC)</h4>
+                    <p>Hear misdemeanor cases outside Metro Manila. Located in municipalities and cities with limited jurisdiction.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-landmark"></i> Specialized Courts</h4>
+                    <p>Sandiganbayan (Anti-Graft), Sharia Courts (Muslim areas), Environmental Courts, and Labor Arbitration.</p>
+                </div>
+            </div>
+
+            <h3>Criminal Trial Process</h3>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4><span class="badge">1</span> Investigation</h4>
+                    <p>Police investigation and evidence gathering. Preliminary investigation to determine probable cause.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4><span class="badge">2</span> Arrest & Custody</h4>
+                    <p>Arrest based on warrant or in flagrante delicto. Inquest if arrest without warrant. Custody period: 3 days for light offenses, 10 days for serious offenses.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4><span class="badge">3</span> Preliminary Investigation</h4>
+                    <p>Prosecutor determines probable cause. For MTC: preliminary inquiry by judge. Time limit: 10 days extendable to 60 days for complex cases.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4><span class="badge">4</span> Filing of Information</h4>
+                    <p>Prosecutor files Information in appropriate court if probable cause found. Information specifies charges and evidence.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4><span class="badge">5</span> Initial Appearance</h4>
+                    <p>Accused appears in court, informed of charges, right to counsel, and bail options. Bail is set if applicable.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4><span class="badge">6</span> Plea Negotiation & Arraignment</h4>
+                    <p>Accused enters plea (guilty, not guilty, or no contest). Plea bargaining may occur for certain crimes.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4><span class="badge">7</span> Pre-Trial Conference</h4>
+                    <p>Mandatory in MTC for misdemeanors. Both parties may settle or pursue trial. Judge conducts pre-trial procedures.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4><span class="badge">8</span> Trial</h4>
+                    <p>Prosecution and defense present evidence. Witnesses testify. Accused has right to confront witnesses. Judge evaluates evidence.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4><span class="badge">9</span> Decision</h4>
+                    <p>Judge renders decision: guilty or acquitted. Findings of facts, legal conclusions, and reasoning documented.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4><span class="badge">10</span> Sentencing</h4>
+                    <p>Judge imposes sentence considering Revised Penal Code, mitigating/aggravating circumstances, and victim impact.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4><span class="badge">11</span> Appeals</h4>
+                    <p>Convicted may appeal to higher court within 15 days. CA reviews facts and law. Further appeal to SC possible.</p>
+                </div>
+            </div>
+
+            <h3>Key Court Personnel</h3>
+
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-hammer"></i></div>
+                    <h4>Judges</h4>
+                    <p>Preside over proceedings, rule on legal matters, ensure fair trial, and impose sentences.</p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-briefcase"></i></div>
+                    <h4>Prosecutors</h4>
+                    <p>City/Provincial Prosecutors conduct preliminary investigations and prosecute cases on behalf of the state.</p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Defense Attorneys</h4>
+                    <p>Private lawyers or Public Attorney's Office (PAO) represent accused and protect their constitutional rights.</p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-pencil"></i></div>
+                    <h4>Court Officials</h4>
+                    <p>Court clerks, sheriffs, and bailiffs facilitate proceedings and execute court orders.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Corrections Section -->
+        <section id="corrections">
+            <h2><i class="fas fa-building"></i> Corrections System</h2>
+
+            <h3>Correctional Facilities</h3>
+
+            <div class="grid">
+                <div class="card">
+                    <h4><i class="fas fa-lock"></i> Jails</h4>
+                    <ul>
+                        <li>Bureau of Jail Management & Penology (BJMP) oversight</li>
+                        <li>Hold pre-trial detainees and short-sentence inmates</li>
+                        <li>Located in municipalities and cities</li>
+                        <li>Often overcrowded due to high pre-trial detention rate</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-network-wired"></i> Prisons</h4>
+                    <ul>
+                        <li>Bureau of Corrections (BuCor) manages national prisons</li>
+                        <li>Hold convicted offenders with sentences over 3 years</li>
+                        <li>Major facilities: New Bilibid Prison (NBP) in Muntinlupa</li>
+                        <li>Various security levels and facility types</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Community-Based Corrections</h3>
+
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h4>Probation</h4>
+                    <p>Parole and Probation Administration (PPA) supervises convicted offenders in community instead of incarceration.</p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-door-open"></i></div>
+                    <h4>Parole</h4>
+                    <p>Early conditional release from prison after serving minimum sentence under supervision and conditions.</p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-home"></i></div>
+                    <h4>Community Service</h4>
+                    <p>Unpaid work serving community as alternative to incarceration or supplementary to sentence.</p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-heart"></i></div>
+                    <h4>Reintegration Programs</h4>
+                    <p>Education, skills training, and livelihood programs for successful reentry to society.</p>
+                </div>
+            </div>
+
+            <h3>Rehabilitation Programs</h3>
+
+            <table>
+                <tr>
+                    <th>Program</th>
+                    <th>Description</th>
+                    <th>Goal</th>
+                </tr>
+                <tr>
+                    <td><strong>Basic Education</strong></td>
+                    <td>Elementary and secondary education programs inside facilities</td>
+                    <td>Improve literacy and educational attainment</td>
+                </tr>
+                <tr>
+                    <td><strong>Vocational Training</strong></td>
+                    <td>Skills in carpentry, welding, tailoring, and trades</td>
+                    <td>Prepare for employment upon release</td>
+                </tr>
+                <tr>
+                    <td><strong>Drug Rehabilitation</strong></td>
+                    <td>Treatment and counseling for substance abuse issues</td>
+                    <td>Reduce addiction and recidivism</td>
+                </tr>
+                <tr>
+                    <td><strong>Mental Health Services</strong></td>
+                    <td>Counseling and psychiatric treatment</td>
+                    <td>Address mental health issues contributing to crime</td>
+                </tr>
+                <tr>
+                    <td><strong>Moral & Spiritual Formation</strong></td>
+                    <td>Religious and values-based programs</td>
+                    <td>Character reformation and behavioral change</td>
+                </tr>
+            </table>
+
+            <div class="warning-box">
+                <h3><i class="fas fa-exclamation-triangle"></i> Corrections System Challenges</h3>
+                <ul>
+                    <li>Severe overcrowding in facilities</li>
+                    <li>Limited funding for rehabilitation programs</li>
+                    <li>Prison violence and gang activities</li>
+                    <li>High recidivism rates</li>
+                    <li>Inadequate medical and mental health services</li>
+                    <li>Poor conditions in some facilities</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Challenges Section -->
+        <section id="challenges">
+            <h2><i class="fas fa-exclamation-triangle"></i> Challenges & Issues</h2>
+
+            <div class="grid">
+                <div class="card">
+                    <h4><i class="fas fa-users-slash"></i> Prison Overcrowding</h4>
+                    <p>Most Philippine correctional facilities operate at 200-600% capacity. Creates safety hazards, limits rehabilitation, and strains resources.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-chart-line"></i> High Recidivism</h4>
+                    <p>Limited rehabilitation opportunities and reentry support result in high rates of re-offense. Inadequate community supervision exacerbates problem.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-hourglass-end"></i> Case Backlogs</h4>
+                    <p>Courts face significant backlogs. Criminal cases may take years to adjudicate, violating right to speedy trial.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-gavel"></i> Judicial Delays</h4>
+                    <p>Pre-trial detention averages 3+ years. Case disposal rate lags behind case filing rate. Affects both innocent and guilty parties.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-not-equal"></i> Inequitable Justice</h4>
+                    <p>Wealthier individuals access better legal representation. Poor accused often languish in jails pretrial. Creates justice disparities.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-face-frown"></i> Wrongful Convictions</h4>
+                    <p>Numerous cases of mistaken identity, false confessions, and inadequate legal defense. Limited DNA testing and appeals process.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-users"></i> Drug War Concerns</h4>
+                    <p>Anti-drug operations have been controversial. Concerns raised about extrajudicial killings, due process, and accountability.</p>
+                </div>
+
+                <div class="card">
+                    <h4><i class="fas fa-coins"></i> Inadequate Resources</h4>
+                    <p>Justice system underfunded. Courts lack facilities. Law enforcement has limited training and equipment. Hampers effectiveness.</p>
+                </div>
+            </div>
+
+            <h3>System-Wide Issues</h3>
+
+            <div class="warning-box">
+                <ul>
+                    <li>Corruption within law enforcement and judiciary</li>
+                    <li>Slow procurement of forensic and investigative equipment</li>
+                    <li>Limited victim support and witness protection programs</li>
+                    <li>Fragmentation among justice agencies</li>
+                    <li>Need for better coordination and data management</li>
+                    <li>Persistent organized crime and gang violence</li>
+                    <li>Human rights concerns in law enforcement</li>
+                    <li>Need for police reform and accountability mechanisms</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- References Section -->
+        <section id="references">
+            <h2><i class="fas fa-book-open"></i> References & Sources</h2>
+
+            <h3>Constitutional Documents</h3>
+
+            <ul>
+                <li><strong>1987 Constitution of the Republic of the Philippines</strong> - Official supreme law</li>
+                <li><strong>Bill of Rights</strong> - Article III of the 1987 Constitution</li>
+                <li><strong>Judicial Power Article</strong> - Article VIII of the 1987 Constitution</li>
+            </ul>
+
+            <h3>Primary Criminal Laws</h3>
+
+            <ul>
+                <li><strong>Revised Penal Code (RPC)</strong> - Act No. 3815 (as amended), primary criminal law</li>
+                <li><strong>Revised Rules of Court</strong> - A.M. No. 19-06-16-SC, Rules 110-119 (Criminal Procedure)</li>
+                <li><strong>Republic Act 9165</strong> - Comprehensive Dangerous Drugs Act of 2002</li>
+                <li><strong>Republic Act 9262</strong> - Anti-Violence Against Women and Their Children Act of 2004</li>
+                <li><strong>Republic Act 10175</strong> - Cybercrime Prevention Act of 2012</li>
+                <li><strong>Republic Act 11479</strong> - Anti-Terrorism Act of 2020</li>
+            </ul>
+
+            <h3>Law Enforcement Regulations</h3>
+
+            <ul>
+                <li><strong>Republic Act 6975</strong> - Establishment of Philippine National Police</li>
+                <li><strong>Republic Act 8551</strong> - National Police Commission Charter</li>
+                <li><strong>Presidential Decree 1275</strong> - Bureau of Corrections Organization</li>
+            </ul>
+
+            <h3>Judiciary & Court Organization</h3>
+
+            <ul>
+                <li><strong>Supreme Court</strong> - Official website and decisions</li>
+                <li><strong>Court of Appeals</strong> - Official decisions and proceedings</li>
+                <li><strong>Philippine Judicial Academy (PHILJA)</strong> - Training and research resources</li>
+                <li><strong>Quezon City: Bureau of Internal Affairs and Governance - PNP Records</strong></li>
+            </ul>
+
+            <h3>Corrections & Rehabilitation</h3>
+
+            <ul>
+                <li><strong>Bureau of Corrections (BuCor)</strong> - National prison administration</li>
+                <li><strong>Bureau of Jail Management & Penology (BJMP)</strong> - Municipal/city jail administration</li>
+                <li><strong>Parole and Probation Administration (PPA)</strong> - Community corrections</li>
+                <li><strong>Republic Act 10592</strong> - Good Conduct Time Allowance Act</li>
+            </ul>
+
+            <h3>Justice Sector Studies & Research</h3>
+
+            <ul>
+                <li><strong>Philippine Statistics Authority (PSA)</strong> - Official statistics on crime</li>
+                <li><strong>Bureau of Justice Statistics</strong> - Court and correction statistics</li>
+                <li><strong>Department of Justice Annual Reports</strong> - Official DOJ data</li>
+                <li><strong>Congressional Research Service Reports</strong> - Legislative analyses of justice laws</li>
+            </ul>
+
+            <h3>Human Rights & Reform Documents</h3>
+
+            <ul>
+                <li><strong>Commission on Human Rights (CHR)</strong> - Philippines official human rights body</li>
+                <li><strong>Ombudsman Reports</strong> - Government accountability documentation</li>
+                <li><strong>International Criminal Court Considerations</strong> - If applicable to Philippines</li>
+            </ul>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section>
+            <h2><i class="fas fa-check-circle"></i> Conclusion</h2>
+
+            <p>The Philippine Criminal Justice System is a complex framework rooted in the 1987 Constitution and decades of legal development. It comprises three main components—law enforcement, judiciary, and corrections—working together to maintain public order and administer justice.</p>
+
+            <h3>Key Characteristics</h3>
+
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-scroll"></i></div>
+                    <h4>Constitutional Foundation</h4>
+                    <p>Based on democratic principles, rule of law, and fundamental human rights protections.</p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-cube"></i></div>
+                    <h4>Three-Part System</h4>
+                    <p>Law enforcement, courts, and corrections work together in criminal justice administration.</p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-exclamation"></i></div>
+                    <h4>Current Challenges</h4>
+                    <p>Overcrowding, case backlogs, and resource constraints affect system efficiency and justice delivery.</p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                    <h4>Reform Efforts</h4>
+                    <p>Ongoing initiatives to modernize, streamline, and improve the justice system.</p>
+                </div>
+            </div>
+
+            <div class="highlight mt-30">
+                <h3><i class="fas fa-heart"></i> Future Outlook</h3>
+                <p>The Philippine criminal justice system continues to evolve to meet the needs of a growing nation. Success requires sustained investment in infrastructure, personnel training, technology, and reform initiatives. Balancing public safety with individual rights remains the central challenge as the Philippines works toward a more efficient, fair, and effective justice system.</p>
+            </div>
+        </section>
+    </div>
+<!-- Contacts Section -->
+        <section id="contacts">
+            <h2><i class="fas fa-address-book"></i> Contact Information</h2>
+            
+            <p>For inquiries, collaboration, or feedback regarding the Philippine Criminal Justice System educational resource, please reach out to the project team:</p>
+
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <h4>Team Leader 1</h4>
+                    <p><a href="mailto:Steevebuyser2006@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">Steevebuyser2006@gmail.com</a></p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <h4>Team Member 2</h4>
+                    <p><a href="mailto:medinadanielamarie@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">medinadanielamarie@gmail.com</a></p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <h4>Team Member 3</h4>
+                    <p><a href="mailto:labatiganrhandy45@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">labatiganrhandy45@gmail.com</a></p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <h4>Team Member 4</h4>
+                    <p><a href="mailto:jhonmarkbularon763@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">jhonmarkbularon763@gmail.com</a></p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <h4>Team Member 5</h4>
+                    <p><a href="mailto:princesstubigon08@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">princesstubigon08@gmail.com</a></p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <h4>Team Member 6</h4>
+                    <p><a href="mailto:ajamaran22@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">ajamaran22@gmail.com</a></p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <h4>Team Member 7</h4>
+                    <p><a href="mailto:Ricodangos68@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">Ricodangos68@gmail.com</a></p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <h4>Team Member 8</h4>
+                    <p><a href="mailto:angelmanaging31@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">angelmanaging31@gmail.com</a></p>
+                </div>
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <h4>Team Member 9</h4>
+                    <p><a href="mailto:jaydrianlanutan@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">jaydrianlanutan@gmail.com</a></p>
+                </div>
+
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <h4>Team Member 10</h4>
+                    <p><a href="mailto:Aquellahcagas@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">Aquellahcagas@gmail.com</a></p>
+                </div>
+            </div> 
+
+                <div class="grid-item">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <h4>Team Member 11</h4>
+                    <p><a href="mailto:renetoadaza028@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">renetoadaza028@gmail.com</a></p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3><i class="fas fa-phone"></i> How to Reach Us</h3>
+                <p>You can contact any of the team members directly via email for:</p>
+                <ul>
+                    <li>Questions about the Philippine Criminal Justice System</li>
+                    <li>Educational resource inquiries</li>
+                    <li>Project collaboration opportunities</li>
+                    <li>Feedback and suggestions for improvement</li>
+                </ul>
+            </div>
+        </section>
+    <!-- Footer -->
+    <footer>
+        <p><strong>Philippine Criminal Justice System</strong></p>
+        <p>A Comprehensive Educational Resource for Understanding the Philippine Criminal Justice System</p>
+        <p>&copy; 2026 | All Rights Reserved | Educational Use</p>
+    </footer>
+
+    <!-- Dark Mode Script -->
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
